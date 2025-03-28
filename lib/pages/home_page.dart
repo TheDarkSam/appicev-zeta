@@ -10,11 +10,41 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var cursos = [
-    {"turno": "Manhã", "nomeCurso": "Programação de IA"},
-    {"turno": "Tarde", "nomeCurso": "Programação Mobile"},
-    {"turno": "Noite", "nomeCurso": "Estrutura de Dados"},
-    {"turno": "Noite", "nomeCurso": "Calculo I"},
-    {"turno": "Tarede", "nomeCurso": "Empreendedoriso"},
+    {
+      "turno": "Manhã",
+      "nomeCurso": "Programação de IA",
+      "dia": "28",
+      "mes": "Apr",
+      "ano": "2024",
+    },
+    {
+      "turno": "Tarde",
+      "nomeCurso": "Programação Mobile",
+      "dia": "23",
+      "mes": "Mar",
+      "ano": "1965",
+    },
+    {
+      "turno": "Noite",
+      "nomeCurso": "Estrutura de Dados",
+      "dia": "10",
+      "mes": "Dez",
+      "ano": "2025",
+    },
+    {
+      "turno": "Noite",
+      "nomeCurso": "Calculo I",
+      "dia": "13",
+      "mes": "Feb",
+      "ano": "2025",
+    },
+    {
+      "turno": "Tarede",
+      "nomeCurso": "Empreendedoriso",
+      "dia": "30",
+      "mes": "Jan",
+      "ano": "2023",
+    },
   ];
 
   @override
@@ -54,6 +84,9 @@ class _HomePageState extends State<HomePage> {
               return CartaoCurso(
                 turno: curso["turno"]!,
                 nomeCurso: curso["nomeCurso"]!,
+                dia: curso["dia"]!,
+                mes: curso["mes"]!,
+                ano: curso["ano"]!,
               );
             }),
           ],
