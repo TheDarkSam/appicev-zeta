@@ -1,3 +1,4 @@
+import 'package:app_sorteador/shared/widgets/cartao_curso.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -8,62 +9,54 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-String nomeSorteado = "";
-List<String> nomes = ["Josefina", "Alice", "João", "Bruna"];
+  var cursos = [
+    {"turno": "Manhã", "nomeCurso": "Programação de IA"},
+    {"turno": "Tarde", "nomeCurso": "Programação Mobile"},
+    {"turno": "Noite", "nomeCurso": "Estrutura de Dados"},
+    {"turno": "Noite", "nomeCurso": "Calculo I"},
+    {"turno": "Tarede", "nomeCurso": "Empreendedoriso"},
+  ];
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text("App de Sorteio"),
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        ),
-        body: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: Container(
-                    color: Colors.amber,
-                    child: Text("A", style: TextStyle(fontSize: 40),)),
-                ),
-                Expanded(
-                  flex: 2,
-                  child: Container(
-                    color: Colors.blueAccent,
-                    child: Text("Bruno", style: TextStyle(fontSize: 40),)),
-                ),
-                Expanded(
-                  child: Container(
-                    color: Colors.green,
-                    child: Text("C", style: TextStyle(fontSize: 40),)),
-                )
-              ],
+          actions: [
+            Padding(
+              padding: EdgeInsets.all(5),
+              child: Icon(Icons.notifications_active_outlined),
             ),
-            Expanded(
-              child: Container(
-                width: 100,
-                color: Colors.red,
-                child:Image.network("https://icev.digital/pluginfile.php/1/theme_remui/loginpanellogo/0/logo-azul%20%2812%29.png"))
-                ),
-              Expanded(
-                child: Container(
-                color: Colors.purpleAccent,
-                child: Text("Eduardo", style: TextStyle(fontSize: 40),)
+            Padding(
+              padding: EdgeInsets.all(5),
+              child: Icon(Icons.messenger_outline_sharp),
+            ),
+
+            Padding(
+              padding: EdgeInsets.all(5),
+              child: CircleAvatar(
+                backgroundImage: NetworkImage(
+                  "https://cdn-icons-png.flaticon.com/512/219/219983.png",
                 ),
               ),
-              Expanded(
-                child: Container(
-                  width: double.infinity,
-                  margin: EdgeInsets.symmetric(vertical: 20, horizontal: 50),
-                color: Colors.tealAccent,
-                child: Center(child: Text("Felipe", style: TextStyle(fontSize: 40),))
-                ),
-              )
+            ),
           ],
-
+        ),
+        drawer: Drawer(),
+        body: ListView(
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+              child: Text("Olá, Fulano 👋", style: TextStyle(fontSize: 30)),
+            ),
+            ...cursos.map((curso) {
+              return CartaoCurso(
+                turno: curso["turno"]!,
+                nomeCurso: curso["nomeCurso"]!,
+              );
+            }),
+          ],
         ),
       ),
     );
