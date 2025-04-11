@@ -1,4 +1,5 @@
 import 'package:app_sorteador/shared/widgets/cartao_curso.dart';
+import 'package:app_sorteador/shared/widgets/drawer_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -73,7 +74,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
-        drawer: Drawer(),
+        drawer: DrawerPage(),
         body: ListView(
           children: [
             Padding(
